@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/gymCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    card_view:cardBackgroundColor="@color/white"
+    card_view:cardCornerRadius="6dp"
+    card_view:cardElevation="6dp"
+    card_view:contentPadding="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imgClase"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp" />
+
+        <TextView
+            android:id="@+id/txtNombreActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/imgClase"
+            android:layout_toRightOf="@id/imgClase"
+            android:text="[NOMBRE DE ACTIVIDAD]"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtNombreInstructor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtNombreActividad"
+            android:layout_toEndOf="@id/imgClase"
+            android:layout_toRightOf="@id/imgClase"
+            android:text="[INSTRUCTOR]"
+            android:textSize="18dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/txtHorarioActividad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtNombreInstructor"
+            android:layout_toEndOf="@id/imgClase"
+            android:layout_toRightOf="@id/imgClase"
+            android:text="[HORARIO]"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnInscribir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtHorarioActividad"
+            android:layout_toEndOf="@id/imgClase"
+            android:layout_toRightOf="@id/imgClase"
+            android:text="Unirme" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

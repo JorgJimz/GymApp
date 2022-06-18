@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GymApp</string>
+    <string name="userRegisterTitle">Registro de Usuarios</string>
+    <string name="registrarText">Grabar</string>
+    <string name="registrarmeText">Registrarme</string>
+    <string name="loginText">Iniciar Sesión</string>
+    <string name="open_drawer">Abrir</string>
+    <string name="close_drawer">Cerrar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
