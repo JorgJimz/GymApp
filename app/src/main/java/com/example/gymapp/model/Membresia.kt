@@ -1,13 +1,15 @@
 package com.example.gymapp.model
 
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.time.LocalDateTime
 
 data class Membresia(
-    val Id: Int? = null,
-    val Fecha: LocalDateTime? = null,
-    val FechaInicio: LocalDateTime? = null,
-    val FechaFin: LocalDateTime? = null,
-    val UsuarioId: Int? = null,
-    val Usuario: Usuario? = null,
-    val Status: Int? = null
-)
+    @SerializedName("id") val Id: Int? = null,
+    @SerializedName("fecha") val Fecha: LocalDateTime? = null,
+    @SerializedName("fechaInicio") val FechaInicio: LocalDateTime? = null,
+    @SerializedName("fechaFin") val FechaFin: LocalDateTime? = null,
+    @SerializedName("usuarioId") val UsuarioId: Int? = null,
+    @SerializedName("usuario") val Usuario: Usuario? = null,
+    @SerializedName("status") val Status: Int? = null
+): Serializable

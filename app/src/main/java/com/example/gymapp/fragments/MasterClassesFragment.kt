@@ -46,7 +46,22 @@ class MasterClassesFragment : Fragment() {
                         call: Call<List<ClasesGrupales>>,
                         response: Response<List<ClasesGrupales>>
                     ) {
-                        rvClasesGrupales.adapter = MasterClassAdapter(response.body()!!)
+                        var adapter = MasterClassAdapter(response.body()!!)
+                        rvClasesGrupales.adapter = adapter
+                        adapter.setOnItemClickListener(object : MasterClassAdapter.OnItemClickListener{
+                            override fun onItemClickListener(position: Int) {
+                                Toast.makeText(context, "Clickeaste $position", Toast.LENGTH_LONG)
+                                var selectedObject = adapter.lstMasterClasses[position]
+                                var fMc : InscripcionConfirmFragment = InscripcionConfirmFragment()
+                                var b : Bundle = Bundle()
+                                b.putSerializable("mc", selectedObject);
+                                fMc.arguments = b
+                                fragmentManager?.beginTransaction()?.apply {
+                                    replace(R.id.fragmentMasterClass,fMc)
+                                    commit()
+                                }
+                            }
+                        })
                     }
                 }
             )

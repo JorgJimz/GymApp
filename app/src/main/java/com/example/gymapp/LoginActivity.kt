@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
     fun Login(sentUser: Usuario){
         var request =
             WebServiceClient.retrofitService.IniciarSesion(
-                sentUser
+                "46910224","123"
             ).enqueue(
                 object : Callback<Usuario> {
                     override fun onFailure(call: Call<Usuario>, t: Throwable) {

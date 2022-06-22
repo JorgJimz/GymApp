@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 
 object WebServiceClient {
 
-    private var url = "http://192.168.3.4/GymApi/"
+    private var url = "http://192.168.3.4:9095/"
     private var httpClient = OkHttpClient.Builder()
         .connectTimeout(1, TimeUnit.MINUTES)
         .readTimeout(30, TimeUnit.SECONDS)

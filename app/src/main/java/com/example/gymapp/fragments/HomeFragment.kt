@@ -43,7 +43,6 @@ class HomeFragment : Fragment() {
         val settings = PreferenceManager.getDefaultSharedPreferences(
             context
         )
-
         val userLogged: Usuario =
             Gson().fromJson(settings.getString("logged", null), Usuario::class.java)
 

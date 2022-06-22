@@ -7,7 +7,18 @@
     <item
         android:id="@+id/nav_clases_grupales"
         android:icon="@drawable/ic_baseline_local_activity_24"
-        android:title="Mis Clases Grupales" />
+        android:title="Clases Grupales" />
+
+    <item
+        android:id="@+id/nav_inscripciones"
+        android:icon="@drawable/ic_baseline_local_activity_24"
+        android:title="Mis Inscripciones" />
+
+    <item
+        android:id="@+id/nav_asistencia"
+        android:icon="@drawable/ic_baseline_local_activity_24"
+        android:title="Asistencia" />
+
     <item
         android:id="@+id/nav_cerrar_sesion"
         android:icon="@drawable/ic_baseline_home_24"

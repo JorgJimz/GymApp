@@ -10,12 +10,23 @@ import com.example.gymapp.R
 import com.example.gymapp.model.ClasesGrupales
 import kotlin.math.absoluteValue
 
-class MasterClassAdapter(var lstMasterClasses: List<ClasesGrupales>) :
+public class MasterClassAdapter(var lstMasterClasses: List<ClasesGrupales>) :
     RecyclerView.Adapter<MasterClassAdapter.ViewHolder>() {
+
+    private lateinit var mListener : OnItemClickListener
+
+    public interface OnItemClickListener{
+        fun onItemClickListener(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener){
+        mListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.master_class_card_view, parent, false)
-        return ViewHolder(v)
+        return ViewHolder(v, mListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -30,7 +41,7 @@ class MasterClassAdapter(var lstMasterClasses: List<ClasesGrupales>) :
         return lstMasterClasses.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val image_class: ImageView
         val class_name: TextView
         val instructor_name: TextView
@@ -41,6 +52,9 @@ class MasterClassAdapter(var lstMasterClasses: List<ClasesGrupales>) :
             class_name = itemView.findViewById(R.id.txtNombreActividad)
             instructor_name = itemView.findViewById(R.id.txtNombreInstructor)
             scheduled_time = itemView.findViewById(R.id.txtHorarioActividad)
+            itemView.setOnClickListener{
+                listener.onItemClickListener(adapterPosition)
+            }
         }
 
     }
