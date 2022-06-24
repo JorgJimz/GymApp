@@ -1,12 +1,31 @@
 <resources>
-    <string name="app_name">App - Gym Is Life</string>
-    <string name="userRegisterTitle">Registro de Usuarios</string>
-    <string name="registrarText">Grabar</string>
-    <string name="buscarText">Buscar</string>
+    <!-- TODO: INICIO - Etiquetas Genéricas -->
     <string name="registrarmeText">Registrarme</string>
     <string name="inscribirmeText">Inscribirme</string>
-    <string name="regresarText">Volver</string>
+    <string name="regresarText">Regresar</string>
+    <string name="registrarText">Guardar Cambios</string>
+    <string name="buscarText">Buscar</string>
     <string name="loginText">Iniciar Sesión</string>
+    <!-- TODO: INICIO - Etiquetas Genéricas -->
+
+    <!-- TODO: INICIO - Etiquetas REGISTRAR MEMBRESIA -->
+    <string name="regmemTitle">Registro de Membresía</string>
+    <string name="regmemDocument">Número de Documento de Identidad</string>
+    <string name="regmemUser">Socio</string>
+    <string name="regmemType">Tipo de Membresía</string>
+    <string name="regmemStart">Fecha Inicio Membresía</string>
+    <string name="regmemEnd">Fecha Fin Membresía</string>
+    <!-- TODO: FIN - Etiquetas REGISTRAR MEMBRESIA -->
+
+    <!-- TODO: INICIO - Etiquetas REGISTRAR ASISTENCIA -->
+    <string name="asisTitle">Registro de Asistencia</string>
+    <string name="asisDocument">Número de Documento de Identidad</string>
+    <string name="asisUser">Socio</string>
+    <!-- TODO: FIN - Etiquetas REGISTRAR ASISTENCIA -->
+
+
+    <string name="app_name">App - Gym Is Life</string>
+    <string name="userRegisterTitle">Registro de Usuarios</string>
     <string name="open_drawer">Abrir</string>
     <string name="close_drawer">Cerrar</string>
     <!-- TODO: Remove or change this placeholder text -->

@@ -35,11 +35,11 @@ class HomeFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         rvInscripciones = view.findViewById(R.id.rvInscripciones)
         rvInscripciones.layoutManager = LinearLayoutManager(requireContext())
-        ObtenerInscripciones()
+        ObtenerInscripcionesPorUsuario()
         return view
     }
 
-    fun ObtenerInscripciones() {
+    fun ObtenerInscripcionesPorUsuario() {
         val settings = PreferenceManager.getDefaultSharedPreferences(
             context
         )

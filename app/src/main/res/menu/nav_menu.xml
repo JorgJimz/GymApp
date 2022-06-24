@@ -20,6 +20,11 @@
         android:title="Asistencia" />
 
     <item
+        android:id="@+id/nav_membresia"
+        android:icon="@drawable/ic_baseline_local_activity_24"
+        android:title="Membresías" />
+
+    <item
         android:id="@+id/nav_cerrar_sesion"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Cerrar Sesión" />

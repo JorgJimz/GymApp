@@ -9,8 +9,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.gymapp.fragments.AsistenciaFragment
 import com.example.gymapp.fragments.HomeFragment
 import com.example.gymapp.fragments.MasterClassesFragment
+import com.example.gymapp.fragments.MembresiaFragment
 import com.example.gymapp.model.Usuario
 import com.google.android.material.navigation.NavigationView
 import com.google.gson.Gson
@@ -44,6 +46,18 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_clases_grupales -> {
                     supportFragmentManager.beginTransaction().apply {
                         replace(R.id.gymFragmentContainerView, MasterClassesFragment())
+                        commit()
+                    }
+                }
+                R.id.nav_membresia -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.gymFragmentContainerView, MembresiaFragment())
+                        commit()
+                    }
+                }
+                R.id.nav_asistencia -> {
+                    supportFragmentManager.beginTransaction().apply {
+                        replace(R.id.gymFragmentContainerView, AsistenciaFragment())
                         commit()
                     }
                 }

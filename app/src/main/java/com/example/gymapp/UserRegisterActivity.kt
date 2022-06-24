@@ -12,20 +12,16 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.util.*
 
 class UserRegisterActivity : AppCompatActivity() {
     lateinit var edtFechaNacimiento : EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_register)
-
         val edtNombre : EditText = findViewById(R.id.edtNombre)
         val edtApellido : EditText = findViewById(R.id.edtApellido)
         val edtEmail : EditText = findViewById(R.id.edtEmail)
-        val edtDocumento : EditText = findViewById(R.id.edtDocumento)
+        val edtDocumento : EditText = findViewById(R.id.EdtDocumento)
         val edtTelefono1 : EditText = findViewById(R.id.edtTelefono1)
         val edtTelefono2 : EditText = findViewById(R.id.edtTelefono2)
         val edtContrasena : EditText = findViewById(R.id.edtPwd)
@@ -81,11 +77,9 @@ class UserRegisterActivity : AppCompatActivity() {
     }
 
     fun onDateSelected(day:Int, month:Int, year:Int){
-
         var sYear: String = twoDigits(year)
         var sMonth: String = twoDigits(month)
         var sDayOfMonth: String = twoDigits(day)
-
         edtFechaNacimiento.setText("${sYear}-${sMonth}-${sDayOfMonth}")
     }
 
