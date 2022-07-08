@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.gymapp.R
 import com.example.gymapp.model.ClasesGrupales
 import kotlin.math.absoluteValue
@@ -34,7 +35,7 @@ public class MasterClassAdapter(var lstMasterClasses: List<ClasesGrupales>) :
         holder.class_name.text = item.Actividad?.Nombre.toString()
         holder.instructor_name.text = item.Instructor?.Nombres.toString().plus(" ").plus(item.Instructor?.Apellidos.toString())
         holder.scheduled_time.text = item.Actividad?.DuracionMinutos.toString().plus(" Minutos")
-        //holder.image_class.setImageResource(master_classes[i])
+        Glide.with(holder.itemView.context).load(item.Actividad?.Imagen).into(holder.image_class)
     }
 
     override fun getItemCount(): Int {

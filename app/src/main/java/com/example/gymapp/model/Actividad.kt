@@ -7,5 +7,10 @@ data class Actividad(
     @SerializedName("id")  val Id: Int? = null,
     @SerializedName("nombre")  val Nombre: String = "",
     @SerializedName("descripcion")  val Descripcion: String = "",
-    @SerializedName("duracionMinutos")  val DuracionMinutos: Int? = null
-): Serializable
+    @SerializedName("duracionMinutos")  val DuracionMinutos: Int? = null,
+    @SerializedName("imagen")  val Imagen: String? = ""
+): Serializable {
+    override fun toString(): String {
+        return Nombre
+    }
+}

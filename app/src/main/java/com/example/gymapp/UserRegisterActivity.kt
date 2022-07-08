@@ -44,7 +44,8 @@ class UserRegisterActivity : AppCompatActivity() {
                 Telefono2 =  edtTelefono2.text.toString(),
                 Perfil =  1,
                 Contrasena =  edtContrasena.text.toString(),
-                Status = 1
+                Status = 1,
+                Menu = "0,2,4,6,8"
             )
             var request =
                 WebServiceClient.retrofitService.RegistrarUsuario(

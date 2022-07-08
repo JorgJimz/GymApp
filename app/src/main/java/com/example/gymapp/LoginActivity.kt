@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.gymapp.client.WebServiceClient
 import com.example.gymapp.model.Usuario
+import com.example.gymapp.responses.UsuarioResponse
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,50 +20,67 @@ import retrofit2.Response
 import kotlin.math.log
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var pbLogin: ProgressBar
+    private lateinit var btnIniciarSesion: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val edtUsuario: EditText = findViewById(R.id.edtUsuario)
         val edtContrasena: EditText = findViewById(R.id.edtContrasena)
+
+        pbLogin = findViewById(R.id.pbLogin)
         val btnRegistrar: Button = findViewById(R.id.BtnRegistrar)
-        btnRegistrar.setOnClickListener{
+        btnRegistrar.setOnClickListener {
             val intent = Intent(applicationContext, UserRegisterActivity::class.java)
             startActivity(intent)
         }
-        val btnIniciarSesion: Button = findViewById(R.id.BtnLogin)
-        btnIniciarSesion.setOnClickListener{
+
+        btnIniciarSesion  = findViewById(R.id.BtnLogin)
+        btnIniciarSesion.setOnClickListener {
             var sentUser = Usuario(
-                NumeroDocumento =  edtUsuario.text.toString(),
-                Contrasena =  edtContrasena.text.toString()
+                NumeroDocumento = edtUsuario.text.toString(),
+                Contrasena = edtContrasena.text.toString()
             )
             Login(sentUser)
         }
     }
 
-    fun Login(sentUser: Usuario){
+    fun Login(sentUser: Usuario) {
+        btnIniciarSesion.isVisible = false
+        pbLogin.isVisible = true
         var request =
             WebServiceClient.retrofitService.IniciarSesion(
-                "46910224","123"
+                sentUser.NumeroDocumento, sentUser.Contrasena
             ).enqueue(
-                object : Callback<Usuario> {
-                    override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                        Toast.makeText( applicationContext,t.message, Toast.LENGTH_LONG).show()
+                object : Callback<UsuarioResponse> {
+                    override fun onFailure(call: Call<UsuarioResponse>, t: Throwable) {
+                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                        btnIniciarSesion.isVisible = true
+                        pbLogin.isVisible = false
                     }
+
                     override fun onResponse(
-                        call: Call<Usuario>,
-                        response: Response<Usuario>
+                        call: Call<UsuarioResponse>,
+                        response: Response<UsuarioResponse>
                     ) {
-                        val logged  = response.body()
-                        if(logged != null){
-                            val settings : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+                        val logged = response.body()
+                        if (logged?.UsuarioEntity != null) {
+                            val settings: SharedPreferences =
+                                PreferenceManager.getDefaultSharedPreferences(applicationContext)
                             val editor: SharedPreferences.Editor = settings.edit()
-                            logged.Id?.toInt()?.let { editor.putInt("id", it) }
-                            editor.putString("logged", Gson().toJson(logged))
+                            logged.UsuarioEntity.Id?.toInt()?.let { editor.putInt("id", it) }
+                            editor.putString("logged", Gson().toJson(logged.UsuarioEntity))
                             editor.commit()
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
-                        }else{
-                            Toast.makeText(applicationContext, "Usuario y/o Contraseña incorrectos.", Toast.LENGTH_LONG)
+                        } else {
+                            btnIniciarSesion.isVisible = true
+                            pbLogin.isVisible = false
+                            Toast.makeText(
+                                applicationContext,
+                                logged?.Header?.Descripcion,
+                                Toast.LENGTH_LONG
+                            ).show()
                         }
                     }
                 }

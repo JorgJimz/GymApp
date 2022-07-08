@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.gymapp.R
 import com.example.gymapp.model.ClasesGrupales
 import com.example.gymapp.model.Inscripcion
@@ -22,9 +23,11 @@ class InscripcionAdapter(var lstInscripciones: List<Inscripcion>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = lstInscripciones[position]
         holder.class_name.text = item.ClaseGrupal?.Actividad?.Nombre.toString()
-        holder.instructor_name.text = item.ClaseGrupal?.Instructor?.Nombres.toString().plus(" ").plus(item.ClaseGrupal?.Instructor?.Apellidos.toString())
-        holder.scheduled_time.text = item.ClaseGrupal?.Actividad?.DuracionMinutos.toString().plus(" Minutos")
-        //holder.image_class.setImageResource(master_classes[i])
+        holder.instructor_name.text = item.ClaseGrupal?.Instructor?.Nombres.toString().plus(" ")
+            .plus(item.ClaseGrupal?.Instructor?.Apellidos.toString())
+        holder.scheduled_time.text =
+            item.ClaseGrupal?.Actividad?.DuracionMinutos.toString().plus(" Minutos")
+        Glide.with(holder.itemView.context).load(item.ClaseGrupal?.Actividad?.Imagen).into(holder.image_class)
     }
 
     override fun getItemCount(): Int {

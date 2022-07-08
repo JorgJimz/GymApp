@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,29 +36,31 @@ class MasterClassesFragment : Fragment() {
         return view
     }
 
-    fun ObtenerClases(){
+    fun ObtenerClases() {
         var request =
             WebServiceClient.retrofitService.ObtenerClases().enqueue(
                 object : Callback<List<ClasesGrupales>> {
                     override fun onFailure(call: Call<List<ClasesGrupales>>, t: Throwable) {
                         Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
                     }
+
                     override fun onResponse(
                         call: Call<List<ClasesGrupales>>,
                         response: Response<List<ClasesGrupales>>
                     ) {
                         var adapter = MasterClassAdapter(response.body()!!)
                         rvClasesGrupales.adapter = adapter
-                        adapter.setOnItemClickListener(object : MasterClassAdapter.OnItemClickListener{
+                        adapter.setOnItemClickListener(object :
+                            MasterClassAdapter.OnItemClickListener {
                             override fun onItemClickListener(position: Int) {
                                 Toast.makeText(context, "Clickeaste $position", Toast.LENGTH_LONG)
                                 var selectedObject = adapter.lstMasterClasses[position]
-                                var fMc : InscripcionConfirmFragment = InscripcionConfirmFragment()
-                                var b : Bundle = Bundle()
+                                var fMc: InscripcionConfirmFragment = InscripcionConfirmFragment()
+                                var b: Bundle = Bundle()
                                 b.putSerializable("mc", selectedObject);
                                 fMc.arguments = b
                                 fragmentManager?.beginTransaction()?.apply {
-                                    replace(R.id.fragmentMasterClass,fMc)
+                                    replace(R.id.fragmentMasterClass, fMc)
                                     commit()
                                 }
                             }

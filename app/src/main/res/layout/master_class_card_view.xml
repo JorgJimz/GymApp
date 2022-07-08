@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/gymCardView"
     android:layout_width="match_parent"
@@ -58,15 +59,16 @@
             android:textSize="16dp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnInscribir"
+        <TextView
+            android:id="@+id/txtTap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtHorarioActividad"
-            android:layout_toEndOf="@id/imgClase"
+            android:layout_below="@id/txtNombreInstructor"
+            android:layout_marginTop="23dp"
             android:layout_toRightOf="@id/imgClase"
-            android:text="Unirme" />
+            android:text="[TAP PARA UNIRTE]"
+            android:textColor="@color/orange"
+            android:textSize="16dp"
+            android:textStyle="bold" />
     </RelativeLayout>
-
-
 </androidx.cardview.widget.CardView>

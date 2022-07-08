@@ -15,5 +15,10 @@ data class Usuario(
     @SerializedName("telefono2") val Telefono2: String = "",
     @SerializedName("perfil") val Perfil: Int? = null,
     @SerializedName("contrasena") val Contrasena: String = "",
-    @SerializedName("status") val Status: Int? = null
-): Serializable
+    @SerializedName("status") val Status: Int? = null,
+    @SerializedName("menu") val Menu: String? = null,
+): Serializable{
+    override fun toString(): String {
+        return Nombres + " " + Apellidos
+    }
+}

@@ -7,7 +7,7 @@
     tools:context=".fragments.HomeFragment">
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/LblMensajeBienvenida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hola, [USUARIO]"
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/LblMensajeBienvenida"
         app:layout_constraintVertical_bias="0.053" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -41,10 +41,47 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtProximasActividades" />
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/card_view_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtProximasActividades"
+        app:shimmer_auto_start="true">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/gymCardView_Loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <include layout="@layout/master_class_card_view_loading" />
+
+            <include layout="@layout/master_class_card_view_loading" />
+
+            <include layout="@layout/master_class_card_view_loading" />
+
+            <include layout="@layout/master_class_card_view_loading" />
+
+            <include layout="@layout/master_class_card_view_loading" />
+
+            <include layout="@layout/master_class_card_view_loading" />
+
+            <include layout="@layout/master_class_card_view_loading" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,11 @@
     <!-- TODO: FIN - Etiquetas REGISTRAR ASISTENCIA -->
 
 
+    <!-- TODO: INICIO - Etiquetas REGISTRAR CLASE GRUPAL -->
+
+    <string name="regClaTitle">Registro de Clase Grupal</string>
+    <!-- TODO: FIN - Etiquetas REGISTRAR CLASE GRUPAL -->
+
     <string name="app_name">App - Gym Is Life</string>
     <string name="userRegisterTitle">Registro de Usuarios</string>
     <string name="open_drawer">Abrir</string>
@@ -31,4 +36,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <string-array name="test">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
 </resources>
