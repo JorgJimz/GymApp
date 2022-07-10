@@ -100,7 +100,6 @@ class MembresiaFragment : Fragment() {
                     override fun onFailure(call: Call<Membresia>, t: Throwable) {
                         Toast.makeText(context, t.message, Toast.LENGTH_LONG).show()
                     }
-
                     override fun onResponse(
                         call: Call<Membresia>,
                         response: Response<Membresia>
