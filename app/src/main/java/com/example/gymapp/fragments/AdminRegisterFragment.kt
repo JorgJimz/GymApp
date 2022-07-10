@@ -88,8 +88,6 @@ class AdminRegisterFragment : Fragment() {
                                 .setTitle("Confirmación de Registro")
                                 .setMessage("¡Usuario registrado exitosamente!")
                                 .setPositiveButton("Ok") { dialog, which ->
-                                    val intent = Intent(context, LoginActivity::class.java)
-                                    startActivity(intent)
                                 }.show()
                         }
                     }

@@ -109,8 +109,6 @@ class MembresiaFragment : Fragment() {
                             .setTitle("Confirmación de Registro")
                             .setMessage("Membresía Adquirida")
                             .setPositiveButton("Ok") { dialog, which ->
-                                val intent = Intent(context, LoginActivity::class.java)
-                                startActivity(intent)
                             }.show()
                     }
                 }

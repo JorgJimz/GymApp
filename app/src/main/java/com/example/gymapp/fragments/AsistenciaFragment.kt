@@ -67,8 +67,6 @@ class AsistenciaFragment : Fragment() {
                             .setTitle("Confirmación de Registro")
                             .setMessage("Asistencia Registrada")
                             .setPositiveButton("Ok") { dialog, which ->
-                                val intent = Intent(context, LoginActivity::class.java)
-                                startActivity(intent)
                             }.show()
                     }
                 }

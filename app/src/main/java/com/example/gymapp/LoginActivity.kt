@@ -13,6 +13,7 @@ import androidx.core.view.isVisible
 import com.example.gymapp.client.WebServiceClient
 import com.example.gymapp.model.Usuario
 import com.example.gymapp.responses.UsuarioResponse
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -68,19 +69,28 @@ class LoginActivity : AppCompatActivity() {
                             val settings: SharedPreferences =
                                 PreferenceManager.getDefaultSharedPreferences(applicationContext)
                             val editor: SharedPreferences.Editor = settings.edit()
-                            logged.UsuarioEntity.Id?.toInt()?.let { editor.putInt("id", it) }
-                            editor.putString("logged", Gson().toJson(logged.UsuarioEntity))
-                            editor.commit()
-                            val intent = Intent(applicationContext, MainActivity::class.java)
-                            startActivity(intent)
+
+                            if(logged?.Header?.Descripcion.isNullOrEmpty()){
+                                logged.UsuarioEntity.Id?.toInt()?.let { editor.putInt("id", it) }
+                                editor.putString("logged", Gson().toJson(logged.UsuarioEntity))
+                                editor.commit()
+                                val intent = Intent(applicationContext, MainActivity::class.java)
+                                startActivity(intent)
+                            }else{
+                                MaterialAlertDialogBuilder(this@LoginActivity)
+                                    .setTitle("Confirmación de Registro")
+                                    .setMessage("No cuenta con membresía activa")
+                                    .setPositiveButton("Ok"){dialog, which ->
+                                    }.show()
+                            }
                         } else {
                             btnIniciarSesion.isVisible = true
                             pbLogin.isVisible = false
-                            Toast.makeText(
-                                applicationContext,
-                                logged?.Header?.Descripcion,
-                                Toast.LENGTH_LONG
-                            ).show()
+                            MaterialAlertDialogBuilder(this@LoginActivity)
+                                .setTitle("Confirmación de Registro")
+                                .setMessage("Error de Usuario / Contraseña")
+                                .setPositiveButton("Ok"){dialog, which ->
+                                }.show()
                         }
                     }
                 }
