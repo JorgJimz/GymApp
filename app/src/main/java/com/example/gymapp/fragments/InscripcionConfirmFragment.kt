@@ -34,11 +34,11 @@ class InscripcionConfirmFragment : Fragment() {
         val instructor_label : TextView = view.findViewById(R.id.lblInstructor)
         val duracion_label : TextView = view.findViewById(R.id.lblDuracion)
         clase_grupal_id = view.findViewById(R.id.lblClaseGrupalId)
-        val btnInscribirme: Button = view.findViewById(R.id.BtnInscripcionInsCon)
+        val btnInscribirme: Button = view.findViewById(R.id.BtnInscripcion)
         btnInscribirme.setOnClickListener{
             GenerarInscripcion()
         }
-        val btnVolver: Button = view.findViewById(R.id.BtmVolverInsCon)
+        val btnVolver: Button = view.findViewById(R.id.BtmVolverMC)
         btnVolver.setOnClickListener{
             fragmentManager?.beginTransaction()?.apply {
                 replace(R.id.fragmentConfirmarInscripcion,MasterClassesFragment())

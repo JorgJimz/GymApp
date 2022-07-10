@@ -26,8 +26,6 @@ interface IWebService {
     fun RegistrarMembresia(@Body membresia: Membresia) : Call<Membresia>
     @POST("api/Asistencia")
     fun RegistrarAsistencia(@Body asistencia: Asistencia) : Call<Asistencia>
-    @GET("api/Asistencia/ByUser")
-    fun BuscarAsistenciasPorUsuario(@Query("id") id: Int) : Call<List<Asistencia>>
     @GET("api/Usuario/GetIntructors")
     fun ObtenerInstructores() : Call<List<Usuario>>
     @GET("api/Actividad")
